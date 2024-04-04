@@ -15,4 +15,3 @@ An in-browser implementation of an Etch-a-sketch to practice DOM manipulation
 - [ ] Allow option to pick color
 - [ ] Add slider to change grid
 - [ ] Add no grid mode
-- [ ] 
