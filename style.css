@@ -100,13 +100,21 @@ body {
     display: inline-block;
 }
 
-.btn-reset,.dropbtn {
+.score {
+    text-align:center;
+    min-width:90px;
+    max-width:350px;
+}
+
+.score,.btn-reset,.dropbtn {
     background-color: #3C3836;
     color:#EBDBB2;
     padding: 5px 25px 5px 25px;
     width: 150px;
     font-size: 16px;
     border: none;
+    text-wrap: nowrap;
+    font-weight: bold;
     cursor: pointer;
 }
 

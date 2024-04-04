@@ -2,12 +2,14 @@ const grid = document.querySelector('.grid')
 
 let xSize = 16;
 let ySize = 16;
+const scoreElement = document.querySelector('.score')
+let hoverScore = 0;
 
 createGrid();
 activateColors();
 
 // dropdown menu function
-function dropMenu() {
+function dropdownMenu() {
     document.getElementById("id-dropdown").classList.toggle("show");
 }
 
@@ -75,9 +77,18 @@ function activateColors() {
             }
             cell.textContent = cellAlpha;
             cell.style.backgroundColor = getRandomColor(cellAlpha*0.1);
+            addScore();
             getAudio(cell);
         });
     });
+}
+
+function addScore() {
+    ++hoverScore;
+    if (hoverScore%50 === 0) {
+        jsConfetti.addConfetti()
+    }
+    scoreElement.textContent = "Score: " + Math.round(Math.floor(hoverScore)*0.1);
 }
 
 // audio sourced from Pixabay. Author: floraphonic
@@ -95,9 +106,15 @@ function getRandomColor(alpha) {
     return 'hsla(' + (Math.random() * 360) + ', 100%, 70%,' + alpha + ')';
 }
 
+function resetScore() {
+    hoverScore = 0;
+    scoreElement.textContent = "Score: " + Math.round(Math.floor(hoverScore)*0.1);
+}
+
 function resetGrid() {
     grid.innerHTML = '';
     createGrid(xSize,ySize);
     activateColors();
+    resetScore();
 }
 
