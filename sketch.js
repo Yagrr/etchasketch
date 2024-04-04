@@ -1,10 +1,13 @@
 const grid = document.querySelector('.grid')
 createGrid();
+activateColors();
 
-function createGrid() {
-    let xAxis = 16;
-    let yAxis = 16;
+const btnReset = document.querySelector('.btn-reset')
+btnReset.addEventListener("click", () => {
+    resetGrid();
+});
 
+function createGrid(xAxis=16,yAxis=16) {
 
     for (let i = 0; i < yAxis; i++) {
         let gridRow = document.createElement("div");
@@ -18,7 +21,22 @@ function createGrid() {
     }
 }
 
+function activateColors() {
+    const gridCells = document.querySelectorAll(".grid-cell");
+    gridCells.forEach((cell) => {
+    cell.addEventListener("mouseover", () => {
+           cell.style.backgroundColor = getRandomColor();
+        });
+    });
+}
+
+function getRandomColor() {
+    return 'hsl(' + (Math.random() * 360) + ', 100%, 70%)';
+}
+
 function resetGrid() {
     grid.innerHTML = '';
+    createGrid();
+    activateColors();
 }
 
