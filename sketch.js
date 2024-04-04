@@ -5,17 +5,20 @@ function createGrid() {
     let xAxis = 16;
     let yAxis = 16;
 
-    const gridRow = document.createElement("div");
-    gridRow.classList.add("grid-row");
 
-    for (let i = yAxis; i < yAxis; i++) {
-        document.querySelector('.grid').appendChild(gridRow);
-        for (let k = xAxis; k < xAxis; k++) {
-            let gridBox = document.createElement("div");
-            gridBox.classList.add("grid-box");
-            document.querySelector('.grid-row').appendChild(gridBox);
+    for (let i = 0; i < yAxis; i++) {
+        let gridRow = document.createElement("div");
+        gridRow.classList.add("grid-row");
+        for (let k = 0; k < xAxis; k++) {
+            let gridCell = document.createElement("div");
+            gridCell.classList.add("grid-cell");
+            gridRow.appendChild(gridCell);
         }
+        grid.appendChild(gridRow);
     }
 }
 
+function resetGrid() {
+    grid.innerHTML = '';
+}
 
