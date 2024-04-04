@@ -3,10 +3,25 @@ const grid = document.querySelector('.grid')
 let xSize = 16;
 let ySize = 16;
 
-const btnReset = document.querySelector('.btn-reset')
-btnReset.addEventListener("click", () => {
-    resetGrid();
-})
+createGrid();
+activateColors();
+
+// dropdown menu function
+function dropMenu() {
+    document.getElementById("id-dropdown").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    let dropdowns = document.getElementsByClassName("dropdown-content");
+    for (let i = 0; i < dropdowns.length; i++) {
+      let openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
 
 const btnSize1 = document.getElementById('size1');
 btnSize1.addEventListener("click", () => {
@@ -30,25 +45,10 @@ btnSize3.addEventListener("click", () => {
     }
 })
 
-createGrid();
-activateColors();
-
-function dropMenu() {
-    document.getElementById("id-dropdown").classList.toggle("show");
-}
-
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    let dropdowns = document.getElementsByClassName("dropdown-content");
-    for (let i = 0; i < dropdowns.length; i++) {
-      let openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-} 
-
+const btnReset = document.querySelector('.btn-reset')
+btnReset.addEventListener("click", () => {
+    resetGrid();
+})
 
 function createGrid(xAxis=16,yAxis=16) {
     for (let i = 0; i < yAxis; i++) {
