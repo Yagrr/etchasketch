@@ -1,6 +1,6 @@
 ## Odin: Etch-a-sketch
 
-An in-browser implementation of an Etch-a-sketch to practice DOM manipulation
+An in-browser implementation of an Etch-a-sketch to practice DOM manipulation. This project is part of The Odin Project foundations course.
 
 ## To do's
 
